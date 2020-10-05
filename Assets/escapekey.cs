@@ -15,5 +15,10 @@ public class escapekey : MonoBehaviour
             Cursor.visible = true;
             PauseMenuUI.SetActive(true);
         }
+        void CursorState()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        }
     }
-}
+
