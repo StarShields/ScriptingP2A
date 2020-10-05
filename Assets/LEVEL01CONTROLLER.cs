@@ -8,6 +8,11 @@ public class LEVEL01CONTROLLER : MonoBehaviour
 {
     [SerializeField] Text currentScoreView;
     int currentScore;
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
