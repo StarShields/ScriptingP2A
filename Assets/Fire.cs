@@ -11,10 +11,14 @@ public class Fire : MonoBehaviour
         if (Input.GetButtonDown("Fire1")){
             muzzleflash.SetActive(true);
             laserSound.Play();
+        
         }
-        else{
-            muzzleflash.SetActive(false);
-          // laserSound.Pause
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+           
+                muzzleflash.SetActive(false);
+                // laserSound.Pause
+            }
         }
-    }
 }
