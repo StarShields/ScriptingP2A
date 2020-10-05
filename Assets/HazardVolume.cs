@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class HazardVolume : MonoBehaviour
 {
-  
-    public void OnTriggerEnter(Collider other)
+    public int damageTaken = 3;
+    PlayerBase player;
+    public void OnTriggerEnter(Collider  other)
     {
-        PlayerMovement PlayerMovement;
-            other.gameObject.GetComponent<PlayerMovement>();
+           other.gameObject.GetComponent<PlayerBase>();
 
-      //  if (PlayerMovement != null)
+       if (player != null)
         {
-         //S   PlayerMovement.Kill();
+            player.TakeDamage(damageTaken);
         }
     }
 }

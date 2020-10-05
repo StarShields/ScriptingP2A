@@ -12,7 +12,7 @@ public class LEVEL01CONTROLLER : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            ExitLevel();
+           // ExitLevel();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))

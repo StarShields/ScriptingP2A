@@ -5,13 +5,16 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     public GameObject muzzleflash;
+    public AudioSource laserSound;
     void Update()
     {
-        if (Input.GetButton("Fire1")){
+        if (Input.GetButtonDown("Fire1")){
             muzzleflash.SetActive(true);
+            laserSound.Play();
         }
         else{
             muzzleflash.SetActive(false);
+          // laserSound.Pause
         }
     }
 }
