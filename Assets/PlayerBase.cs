@@ -36,7 +36,6 @@ public class PlayerBase : MonoBehaviour
             deathtext.SetActive(true);
             Time.timeScale = 0f;
 
-
         }
 
     }
