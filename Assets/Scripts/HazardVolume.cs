@@ -8,13 +8,11 @@ public class HazardVolume : MonoBehaviour
     PlayerBase player;
     public void OnTriggerEnter(Collider  other)
     {
-
         PlayerBase player
           = other.gameObject.GetComponent<PlayerBase>();
         if (player != null)
         {
             player.TakeDamage(damageTaken);
         }
-     
     }
 }

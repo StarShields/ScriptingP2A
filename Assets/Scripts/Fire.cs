@@ -7,15 +7,28 @@ public class Fire : MonoBehaviour
     [SerializeField] Camera cameraController;
     [SerializeField] Transform rayOrigin;
     [SerializeField] float shootDistance = 10f;
-    [SerializeField] GameObject effect;
+    [SerializeField] ParticleSystem effect;
     [SerializeField] int weaponDamage = 20;
+    public GameObject shield;
+    public Transform shieldDeployPoint;
     public GameObject muzzleflash;
     public AudioSource laserSound;
+    public GameObject deployCursor;
+    PlayerBase player;
 
     RaycastHit objectHit;
-    void Update()
+     void Update()
     {
-        //   if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetKey(KeyCode.E))
+        {
+            deployCursor.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            Debug.Log("ShieldActivated");
+            ShieldsUp();
+            deployCursor.SetActive(false);
+        }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
@@ -23,7 +36,6 @@ public class Fire : MonoBehaviour
             laserSound.Play();
             Debug.Log("This part is working");
         }
-        // if (Input.GetButtonUp("Fire1"))
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             muzzleflash.SetActive(false);
@@ -31,32 +43,29 @@ public class Fire : MonoBehaviour
 
         void Shoot()
         {
-          //  RaycastHit hit;
-            //calculate direction! 
-           //if(Physics.Raycast(cameraController.transform.position, cameraController.transform.forward, out hit, shootDistance))
-           // {
-           //     Debug.Log(hit.transform.name);
-           // }      
+           
             Vector3 rayDirection = cameraController.transform.forward;
             //do raycast
-                   Debug.DrawRay(rayOrigin.position, rayDirection * shootDistance, Color.blue, 1f);
+                   //Debug.DrawRay(rayOrigin.position, rayDirection * shootDistance, Color.blue, 1f);
            if (Physics.Raycast(rayOrigin.position, rayDirection, out objectHit, shootDistance)) {
-
-           
                Debug.Log("you just hit " + objectHit.transform.name);
                 effect.transform.position = objectHit.point;
-
                 Enemy enemy = objectHit.transform.gameObject.GetComponent<Enemy>();
                 if(enemy != null)
                 {
                     enemy.TakeDamage(weaponDamage);
+                    //EnemyDamaged.Play();
                 }
           }
          else
            {
-               Debug.Log("miss");
+                Debug.Log("miss");
           }
         }
+    }
+     void ShieldsUp()
+    {
+        Instantiate(shield, shieldDeployPoint.position, shieldDeployPoint.rotation);  
     }
 }
 
