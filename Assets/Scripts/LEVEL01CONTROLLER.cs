@@ -20,9 +20,9 @@ public class LEVEL01CONTROLLER : MonoBehaviour
            // ExitLevel();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            IncreaseScore(5);
+          //  IncreaseScore(5);
         }
 
     }

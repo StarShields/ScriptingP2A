@@ -747,4 +747,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 0
-  destroytime: 3
+  destroytime: 12.61
