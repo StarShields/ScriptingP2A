@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HazardVolume : MonoBehaviour
 {
-    public int damageTaken = 3;
+    public int damageTaken = 10;
     PlayerBase player;
     public void OnTriggerEnter(Collider  other)
     {

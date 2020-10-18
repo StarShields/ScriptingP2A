@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
                 EnemyRocket.Play();
               Rigidbody projectileInstance;
               projectileInstance = Instantiate(projectile, barrelEnd.position, barrelEnd.rotation);
-              projectileInstance.AddForce(barrelEnd.forward * 500f);
+              projectileInstance.AddForce(barrelEnd.forward * 750f);
                 nextFire = Time.time + fireRate;
             }
         }

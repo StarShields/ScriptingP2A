@@ -6,7 +6,7 @@ public class HealScript : MonoBehaviour
 {
     public float lifetime;
     public float destroytime = 10f;
-    public GameObject HealSource;
+  //  public GameObject HealSource;
     public AudioSource HealSound;
     void Update()
     {
@@ -27,7 +27,7 @@ public class HealScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        HealSource.SetActive(true);
+       // HealSource.SetActive(true);
         HealSound.Play();
     }
     private void OnTriggerStay(Collider other)
