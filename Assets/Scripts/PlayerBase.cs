@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerBase : MonoBehaviour
 {
-    public float maxHealth = 100;
+    public float maxHealth = 50;
     public float currentHealth;
    
   
     public HealthBar healthBar;
     public GameObject deathtext;
+    public AudioSource InjurySound;
 
     float damageTaken = 3f;
     
@@ -25,14 +26,18 @@ public class PlayerBase : MonoBehaviour
 
     public void TakeDamage(float damageTaken)
     {
+        InjurySound.Play();
         currentHealth -= damageTaken;
         healthBar.SetHealth(currentHealth);
         if (currentHealth < 1)
         {
             Debug.Log("died");
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             deathtext.SetActive(true);
             Time.timeScale = 0f;
+
+
         }
     }
 
@@ -46,7 +51,7 @@ public class PlayerBase : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             Debug.Log("Max health reached");
-            currentHealth = 100f;
+            currentHealth = 50f;
         }
     }
 }

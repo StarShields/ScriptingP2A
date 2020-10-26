@@ -33,6 +33,7 @@ public class LEVEL01CONTROLLER : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore", currentScore);
             Debug.Log("New high score: " + currentScore);
+            currentScoreView.text = "HighScore";
         }
         SceneManager.LoadScene("MainMenu");
     }

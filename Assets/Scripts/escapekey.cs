@@ -20,6 +20,7 @@ public class escapekey : MonoBehaviour
     public  void CursorState()
         {
             Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         }
     }
 
